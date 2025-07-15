@@ -23,7 +23,7 @@ export const assetsApi = createApi({
           body,
         };
       },
-      invalidatesTags: (_result, _error) => [{ type: "assets" }],
+      invalidatesTags: () => [{ type: "assets" }],
     }),
     updateAssets: build.mutation<ResponseResult<string>, { context: AssetsInventoryKeys }>({
       query(body) {
@@ -33,7 +33,7 @@ export const assetsApi = createApi({
           body,
         };
       },
-      invalidatesTags: (_result, _error) => [{ type: "assets" }],
+      invalidatesTags: () => [{ type: "assets" }],
     }),
   }),
 });

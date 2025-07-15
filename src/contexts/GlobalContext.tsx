@@ -9,7 +9,7 @@ import React, {
   useState,
 } from "react";
 // Global context types
-export type UserInfo = { [key: string]: any };
+export type UserInfo = { [key: string]: null | string | number | boolean };
 
 interface AppContextProps {
   updateUserData: (userInfo: UserInfo | null) => void;

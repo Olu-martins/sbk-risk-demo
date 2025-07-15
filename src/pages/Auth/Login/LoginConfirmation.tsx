@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { MfaResponse } from "+types";
 import { useVerifyMfaMutation } from "@api/features/auth.api";
-import { useGlobalContext } from "@contexts/GlobalContext";
+import { useGlobalContext, UserInfo } from "@contexts/GlobalContext";
 import { toast } from "react-hot-toast";
 import { useAppDispatch } from "@api/data/store";
 import {
@@ -46,7 +46,7 @@ const LoginConfirmation = () => {
       };
       const response = await verifyMfa(formBody).unwrap();
       if (response.data) {
-        updateUserData(response.data);
+        updateUserData(response.data as unknown as UserInfo);
         if (rememberMe) {
           localStorage.setItem(ACCESS_TOKEN, response.data.accessToken);
           localStorage.setItem(REFRESH_TOKEN, response.data.refreshToken);

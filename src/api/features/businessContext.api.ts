@@ -45,7 +45,7 @@ export const businessContextApi = createApi({
           body,
         };
       },
-      invalidatesTags: (_result, _error) => [{ type: "businessContext" }],
+      invalidatesTags: () => [{ type: "businessContext" }],
     }),
     updateBusinessContext: build.mutation<
       ResponseResult<string>,
@@ -58,16 +58,16 @@ export const businessContextApi = createApi({
           body,
         };
       },
-      invalidatesTags: (_result, _error) => [{ type: "businessContext" }],
+      invalidatesTags: () => [{ type: "businessContext" }],
     }),
-    deleteBusinessContext: build.mutation<ResponseResult<any>, void>({
+    deleteBusinessContext: build.mutation<ResponseResult<unknown>, void>({
       query() {
         return {
           url: `/business-context`,
           method: "DELETE",
         };
       },
-      invalidatesTags: (_result, _error) => [{ type: "businessContext" }],
+      invalidatesTags: () => [{ type: "businessContext" }],
     }),
   }),
 });

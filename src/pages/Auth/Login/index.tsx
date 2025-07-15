@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import PasswordInput from "@components/Form/PasswordInput";
 import { useState } from "react";
 import { useLoginMutation } from "@api/features/auth.api";
-import { useGlobalContext } from "@contexts/GlobalContext";
+import { useGlobalContext, UserInfo } from "@contexts/GlobalContext";
 import { useAppDispatch } from "@api/data/store";
 import {
   ACCESS_TOKEN,
@@ -58,7 +58,7 @@ const Login = () => {
           });
         } else {
           const { accessToken, refreshToken } = response.data as AuthResult;
-          updateUserData(response.data);
+          updateUserData(response.data as unknown as UserInfo);
           if (rememberMe) {
             localStorage.setItem(ACCESS_TOKEN, accessToken);
             localStorage.setItem(REFRESH_TOKEN, refreshToken);
