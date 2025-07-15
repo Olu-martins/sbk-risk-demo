@@ -1,5 +1,5 @@
 import { Flex, Image } from "@chakra-ui/react";
-import banner from "@assets/svgs/AssetBanner.svg";
+import banner from "@assets/svgs/Assetbanner.svg"; // Ensure the casing matches the file name
 
 const AssetBanner = () => {
   return (
